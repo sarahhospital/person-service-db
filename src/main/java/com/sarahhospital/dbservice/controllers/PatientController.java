@@ -1,11 +1,11 @@
 package com.sarahhospital.dbservice.controllers;
 
+import com.sarahhospital.dbservice.controllers.model.Person;
 import com.sarahhospital.dbservice.services.PatientService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class PatientController {
 
     private PatientService patientService;
@@ -14,10 +14,10 @@ public class PatientController {
         this.patientService = patientService;
     }
 
-    @ResponseBody
     @GetMapping("/person")
-    public String getPersonName(){
-        return patientService.getAllPatients().get(0).getName();
+    public Person getPersonName(){
+        String name = patientService.getAllPatients().get(0).getName();
+        return new Person(name);
     }
 
 }
