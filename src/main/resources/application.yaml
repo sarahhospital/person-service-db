@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://10.108.158.25:5432/hospital
+    username: sarah
+    password: 66542
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp:
+          use_jdbc_metadata_defaults: false
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+server:
+  port:
+    8080

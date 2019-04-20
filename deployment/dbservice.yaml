@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: dbservice
+spec:
+  template:
+    metadata:
+      labels:
+        app: dbservice
+    spec:
+      containers:
+        - name: dbservice
+          image: dbservice
+          imagePullPolicy: "Never"
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dbservice
+spec:
+  type: NodePort
+  ports:
+    - nodePort: 31317
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: dbservice
