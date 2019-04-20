@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://10.108.158.25:5432/hospital
+    url: jdbc:postgresql://postgres:5432/hospital
     username: sarah
     password: 66542
   jpa:
